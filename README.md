@@ -90,11 +90,13 @@ customer customerObject = {
 Why?
 ----
 
-Generating data literals in C is useful for embedding configuration, mark up, or even whole databases into C programs. It has several advantages over loading the data at runtime - it doesn't require a parser, gives lightning fast access, and uses minimal memory. This is because the whole thing is stripped of meta-data such as field names, there is no hashing required, and all access patterns are resolved at compile-time.
+Generating data literals in C is useful for embedding configuration, mark up, or even whole databases into C programs.
 
-Converting from JSON is a natural choice because of the abundance of tools that can generate and edit it, and its ease of construction by hand.
+It has several advantages over loading the data at runtime - it doesn't require a parser, gives lightning fast access, and uses minimal memory. This is because the whole thing is stripped of meta-data such as field names, there is no hashing required, and all access patterns are resolved at compile-time. The final bonus is that objects can be accessed with familiar dot notation right from C!
 
-An example application for this tool might be in the construction of an RPG. If you have a large amount of data to enter such as weapon and item details you could do the data entry in JSON and then use this tool to embed it directly at compile time.
+Conversion from JSON is a natural choice because of how easy it is to write by hand, and the abundance of tools that can generate and edit it.
+
+An example application for this tool might be in the construction of an RPG. Given a large amount of data to enter, such as weapon and item details, the data entry could be generated (or written by hand), and then this tool could be used to embed it directly at compile time.
 
 
 Usage
@@ -104,7 +106,7 @@ Simply run the script on some JSON file to create a header and source file as ou
 
 ```
 pip install json2c
-json2c customer.json
+json2c -c customer.json
 ```
 
 Run with `--help` to see the full list of options. This includes lots of options for changing the style and conventions of the generated C code.
@@ -113,13 +115,19 @@ Run with `--help` to see the full list of options. This includes lots of options
 How it Works
 ------------
 
-The basic process of `json2c` is simple. The json is recursively converted to C equivalents. Literals such as strings, integers, and booleans, are converted directly to C types. Hashes are converted to C structs, with a type definition generated to go with them. Trouble only starts trying to convert lists, as C does not support heterogeneous lists.
+The basic process of `json2c` is simple.
 
-But while JSON technically has heterogeneous lists, most data you encounter in the wild tends to use lists somewhat homogeneously. So if it encounters a list `json2c` attempts to _unify_ all the types within the list into a single matching type. It can then convert it to a fixed size array, or a pointer. To do this unification it uses a number of heuristics. For example it can unify `null` with various other types using pointers and such. It can add missing entries into hashes, or convert two arrays of different fixed sizes into variable length arrays. It can also automatically promote basic types together, such as converting `int` to `float` or `bool` to `int`.
+JSON is recursively converted to equivalent C. Literals such as strings, integers, and booleans, are converted directly to C types. Hashes are converted to C structs, and a type definition is generated to go with them.
+
+Trouble only starts trying to convert JSON lists, as C does not support heterogeneous lists.
+
+Luckily for us, while JSON technically has heterogeneous lists, most data you encounter in the wild tends to use lists somewhat homogeneously. Because of this if `json2c` encounters a list it attempts to _unify_ all the types within the list into a single matching type. This it can write out as an array or a pointer.
+
+To do this unification a number of heuristics are used. For example `null` can be unified with various other types using pointers and other tricks. Missing entries into hashes can be added, or two arrays of different fixed sizes can be converted into variable length arrays. Basic types can be promoted to match, such as converting `int` to `float` or `bool` to `int`.
 
 While some of the heuristics don't always make sense, this approach has overall proven very effective for almost all example JSON data I've found. This means `json2c` is almost always capable of producing something meaningful.
 
-Various options about how types and names and generated can be set on the command line. This allows you to generate C code that matches your project, and almost looks hand-written.
+Various options about how types and names and generated can be set on the command line. This allows you to generate C code that matches your project, and looks hand-written.
 
 
 More Examples
