@@ -1,11 +1,15 @@
-#ifndef interop_h
-#define interop_h
+#ifndef INTEROP_H
+#define INTEROP_H
+
+#include <stdlib.h>
+#include <stdbool.h>
+#include <math.h>
 
 typedef struct {
     const char* Url;
     const char* Height;
     const char* Width;
-} json_ResultSet_Result_entry_Thumbnail;
+} interopResultSetResultEntryThumbnail;
 
 typedef struct {
     const char* Title;
@@ -17,22 +21,24 @@ typedef struct {
     const char* FileFormat;
     const char* Height;
     const char* Width;
-    json_ResultSet_Result_entry_Thumbnail Thumbnail;
-} json_ResultSet_Result_entry;
+    interopResultSetResultEntryThumbnail Thumbnail;
+} interopResultSetResultEntry;
 
-typedef json_ResultSet_Result_entry json_ResultSet_Result[2];
+enum { INTEROPRESULTSETRESULTCOUNT = 2 };
+
+typedef interopResultSetResultEntry interopResultSetResult[INTEROPRESULTSETRESULTCOUNT];
 
 typedef struct {
     const char* totalResultsAvailable;
     long totalResultsReturned;
     long firstResultPosition;
-    json_ResultSet_Result Result;
-} json_ResultSet;
+    interopResultSetResult Result;
+} interopResultSet;
 
 typedef struct {
-    json_ResultSet ResultSet;
-} json;
+    interopResultSet ResultSet;
+} interop;
 
-extern json interop;
+extern interop interopObject;
 
 #endif

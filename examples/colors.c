@@ -1,8 +1,6 @@
 #include "colors.h"
 
-#include <stdlib.h>
-
-json colors = {
+colors colorsObject = {
     .colorsArray = {
         {
             .colorName = "red", 

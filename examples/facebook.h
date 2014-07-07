@@ -1,34 +1,42 @@
-#ifndef facebook_h
-#define facebook_h
+#ifndef FACEBOOK_H
+#define FACEBOOK_H
+
+#include <stdlib.h>
+#include <stdbool.h>
+#include <math.h>
 
 typedef struct {
     const char* name;
     const char* id;
-} json_data_entry_from;
+} facebook_data_entry_from;
 
 typedef struct {
     const char* name;
     const char* link;
-} json_data_entry_actions_entry;
+} facebook_data_entry_actions_entry;
 
-typedef json_data_entry_actions_entry json_data_entry_actions[2];
+enum { FACEBOOK_DATA_ENTRY_ACTIONS_COUNT = 2 };
+
+typedef facebook_data_entry_actions_entry facebook_data_entry_actions[FACEBOOK_DATA_ENTRY_ACTIONS_COUNT];
 
 typedef struct {
     const char* id;
-    json_data_entry_from from;
+    facebook_data_entry_from from;
     const char* message;
-    json_data_entry_actions actions;
+    facebook_data_entry_actions actions;
     const char* type;
     const char* created_time;
     const char* updated_time;
-} json_data_entry;
+} facebook_data_entry;
 
-typedef json_data_entry json_data[2];
+enum { FACEBOOK_DATA_COUNT = 2 };
+
+typedef facebook_data_entry facebook_data[FACEBOOK_DATA_COUNT];
 
 typedef struct {
-    json_data data;
-} json;
+    facebook_data data;
+} facebook;
 
-extern json facebook;
+extern facebook facebook_object;
 
 #endif

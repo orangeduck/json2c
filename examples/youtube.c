@@ -1,6 +1,6 @@
 #include "youtube.h"
 
-youtube youtube_object = {
+youtube youtubeObject = {
     .apiVersion = "2.0", 
     .data = {
         .updated = "2010-01-07T19:58:42.949Z", 

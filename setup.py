@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='json2c',
-    version='0.9',
+    version='0.9.1',
     description='Convert JSON to C data literals',
     author='Daniel Holden',
     author_email='contact@theorangeduck.com',

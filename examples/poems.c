@@ -1,8 +1,6 @@
 #include "poems.h"
 
-#include <stdlib.h>
-
-json poems = {
+poems poems_object = {
     {
         .id_author = "czeslaw-milosz", 
         .index = 48670, 

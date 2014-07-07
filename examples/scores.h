@@ -1,19 +1,25 @@
-#ifndef scores_h
-#define scores_h
+#ifndef SCORES_H
+#define SCORES_H
+
+#include <stdlib.h>
+#include <stdbool.h>
+#include <math.h>
 
 typedef struct {
     long length;
     const char** values;
-} json_entry_points;
+} scores_entry_points;
 
 typedef struct {
     long index;
     const char* name;
-    json_entry_points points;
-} json_entry;
+    scores_entry_points points;
+} scores_entry;
 
-typedef json_entry json[3];
+enum { SCORES_COUNT = 3 };
 
-extern json scores;
+typedef scores_entry scores[SCORES_COUNT];
+
+extern scores scores_object;
 
 #endif

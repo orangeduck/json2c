@@ -1,17 +1,23 @@
-#ifndef colors_h
-#define colors_h
+#ifndef COLORS_H
+#define COLORS_H
+
+#include <stdlib.h>
+#include <stdbool.h>
+#include <math.h>
 
 typedef struct {
     const char* colorName;
     const char* hexValue;
-} json_colorsArray_entry;
+} colorsColorsArrayEntry;
 
-typedef json_colorsArray_entry json_colorsArray[7];
+enum { COLORSCOLORSARRAYCOUNT = 7 };
+
+typedef colorsColorsArrayEntry colorsColorsArray[COLORSCOLORSARRAYCOUNT];
 
 typedef struct {
-    json_colorsArray colorsArray;
-} json;
+    colorsColorsArray colorsArray;
+} colors;
 
-extern json colors;
+extern colors colorsObject;
 
 #endif

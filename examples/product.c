@@ -1,6 +1,6 @@
 #include "product.h"
 
-customer object = {
+product product_object = {
     .name = "Product", 
     .properties = {
         .id = {

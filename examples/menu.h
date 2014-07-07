@@ -1,27 +1,33 @@
-#ifndef menu_h
-#define menu_h
+#ifndef MENU_H
+#define MENU_H
+
+#include <stdlib.h>
+#include <stdbool.h>
+#include <math.h>
 
 typedef struct {
     const char* value;
     const char* onclick;
-} json_menu_popup_menuitem_entry;
+} menu_menu_popup_menuitem_entry;
 
-typedef json_menu_popup_menuitem_entry json_menu_popup_menuitem[3];
+enum { MENU_MENU_POPUP_MENUITEM_COUNT = 3 };
+
+typedef menu_menu_popup_menuitem_entry menu_menu_popup_menuitem[MENU_MENU_POPUP_MENUITEM_COUNT];
 
 typedef struct {
-    json_menu_popup_menuitem menuitem;
-} json_menu_popup;
+    menu_menu_popup_menuitem menuitem;
+} menu_menu_popup;
 
 typedef struct {
     const char* id;
     const char* value;
-    json_menu_popup popup;
-} json_menu;
+    menu_menu_popup popup;
+} menu_menu;
 
 typedef struct {
-    json_menu menu;
-} json;
+    menu_menu menu;
+} menu;
 
-extern json menu;
+extern menu menu_object;
 
 #endif

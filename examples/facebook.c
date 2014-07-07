@@ -1,8 +1,6 @@
 #include "facebook.h"
 
-#include <stdlib.h>
-
-json facebook = {
+facebook facebook_object = {
     .data = {
         {
             .id = "X999_Y999", 

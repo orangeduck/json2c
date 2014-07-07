@@ -1,22 +1,28 @@
 #ifndef viewer_h
 #define viewer_h
 
+#include <stdlib.h>
+#include <stdbool.h>
+#include <math.h>
+
 typedef struct {
     const char* id;
     const char* label;
-} json_menu_items_entry_entry;
+} viewer_menu_items_entry;
 
-typedef json_menu_items_entry_entry* json_menu_items[22];
+enum { viewer_menu_items_count = 22 };
+
+typedef viewer_menu_items_entry* viewer_menu_items[viewer_menu_items_count];
 
 typedef struct {
     const char* header;
-    json_menu_items items;
-} json_menu;
+    viewer_menu_items items;
+} viewer_menu;
 
 typedef struct {
-    json_menu menu;
-} json;
+    viewer_menu menu;
+} viewer;
 
-extern json viewer;
+extern viewer viewer_object;
 
 #endif

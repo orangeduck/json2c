@@ -1,8 +1,6 @@
 #include "widget.h"
 
-#include <stdlib.h>
-
-json widget = {
+widget widgetObject = {
     .widget = {
         .debug = "on", 
         .window = {

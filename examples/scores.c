@@ -1,8 +1,6 @@
 #include "scores.h"
 
-#include <stdlib.h>
-
-json scores = {
+scores scores_object = {
     {
         .index = 1, 
         .name = "mike", 

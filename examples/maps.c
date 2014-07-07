@@ -1,41 +1,39 @@
 #include "maps.h"
 
-#include <stdlib.h>
-
-json maps = {
+maps mapsObject = {
     .markers = {
         {
-            .markerImage = "images/red.png", 
-            .fixture = "Wednesday 7pm", 
-            .tv = NULL, 
             .point = {40.266044, -74.718479}, 
-            .previousScore = "", 
             .homeTeam = "Lawrence Library", 
+            .awayTeam = "LUGip", 
+            .markerImage = "images/red.png", 
             .information = "Linux users group meets second Wednesday of each month.", 
+            .fixture = "Wednesday 7pm", 
             .capacity = "", 
-            .awayTeam = "LUGip"
+            .previousScore = "", 
+            .tv = NULL
         }, 
         {
-            .markerImage = "images/white.png", 
-            .fixture = "Tuesday 7pm", 
-            .tv = "", 
             .point = {40.2116, -74.695702}, 
-            .previousScore = NULL, 
             .homeTeam = "Hamilton Library", 
+            .awayTeam = "LUGip HW SIG", 
+            .markerImage = "images/white.png", 
             .information = "Linux users can meet the first Tuesday of the month to work out harward and configuration issues.", 
+            .fixture = "Tuesday 7pm", 
             .capacity = "", 
-            .awayTeam = "LUGip HW SIG"
+            .previousScore = NULL, 
+            .tv = ""
         }, 
         {
-            .markerImage = "images/newcastle.png", 
-            .fixture = "Wednesday whenever", 
-            .tv = "", 
             .point = {40.294535, -74.682012}, 
-            .previousScore = NULL, 
             .homeTeam = "Applebees", 
+            .awayTeam = "After LUPip Mtg Spot", 
+            .markerImage = "images/newcastle.png", 
             .information = "Some of us go there after the main LUGip meeting, drink brews, and talk.", 
+            .fixture = "Wednesday whenever", 
             .capacity = "2 to 4 pints", 
-            .awayTeam = "After LUPip Mtg Spot"
+            .previousScore = NULL, 
+            .tv = ""
         }
     }
 };

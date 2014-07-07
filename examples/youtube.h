@@ -1,33 +1,33 @@
-#ifndef youtube_h
-#define youtube_h
+#ifndef YOUTUBE_H
+#define YOUTUBE_H
 
 #include <stdlib.h>
 #include <stdbool.h>
 #include <math.h>
 
-enum { YOUTUBE_DATA_ITEMS_ENTRY_TAGS_COUNT = 3 };
+enum { YOUTUBEDATAITEMSENTRYTAGSCOUNT = 3 };
 
-typedef const char* youtube_data_items_entry_tags[YOUTUBE_DATA_ITEMS_ENTRY_TAGS_COUNT];
+typedef const char* youtubeDataItemsEntryTags[YOUTUBEDATAITEMSENTRYTAGSCOUNT];
 
 typedef struct {
     const char* _default;
     const char* hqDefault;
-} youtube_data_items_entry_thumbnail;
+} youtubeDataItemsEntryThumbnail;
 
 typedef struct {
     const char* _default;
-} youtube_data_items_entry_player;
+} youtubeDataItemsEntryPlayer;
 
 typedef struct {
     const char* _1;
     const char* _5;
     const char* _6;
-} youtube_data_items_entry_content;
+} youtubeDataItemsEntryContent;
 
 typedef struct {
     const char* value;
     const char* reason;
-} youtube_data_items_entry_status;
+} youtubeDataItemsEntryStatus;
 
 typedef struct {
     const char* syndicate;
@@ -37,7 +37,7 @@ typedef struct {
     const char* comment;
     const char* embed;
     const char* videoRespond;
-} youtube_data_items_entry_accessControl;
+} youtubeDataItemsEntryAccessControl;
 
 typedef struct {
     const char* id;
@@ -47,10 +47,10 @@ typedef struct {
     const char* category;
     const char* title;
     const char* description;
-    youtube_data_items_entry_tags tags;
-    youtube_data_items_entry_thumbnail thumbnail;
-    youtube_data_items_entry_player player;
-    youtube_data_items_entry_content content;
+    youtubeDataItemsEntryTags tags;
+    youtubeDataItemsEntryThumbnail thumbnail;
+    youtubeDataItemsEntryPlayer player;
+    youtubeDataItemsEntryContent content;
     long duration;
     const char* aspectRatio;
     double rating;
@@ -58,27 +58,27 @@ typedef struct {
     long viewCount;
     long favoriteCount;
     long commentCount;
-    youtube_data_items_entry_status status;
-    youtube_data_items_entry_accessControl accessControl;
-} youtube_data_items_entry;
+    youtubeDataItemsEntryStatus status;
+    youtubeDataItemsEntryAccessControl accessControl;
+} youtubeDataItemsEntry;
 
-enum { YOUTUBE_DATA_ITEMS_COUNT = 1 };
+enum { YOUTUBEDATAITEMSCOUNT = 1 };
 
-typedef youtube_data_items_entry youtube_data_items[YOUTUBE_DATA_ITEMS_COUNT];
+typedef youtubeDataItemsEntry youtubeDataItems[YOUTUBEDATAITEMSCOUNT];
 
 typedef struct {
     const char* updated;
     long totalItems;
     long startIndex;
     long itemsPerPage;
-    youtube_data_items items;
-} youtube_data;
+    youtubeDataItems items;
+} youtubeData;
 
 typedef struct {
     const char* apiVersion;
-    youtube_data data;
+    youtubeData data;
 } youtube;
 
-extern youtube youtube_object;
+extern youtube youtubeObject;
 
 #endif

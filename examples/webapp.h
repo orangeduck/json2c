@@ -1,78 +1,78 @@
-#ifndef webapp_h
-#define webapp_h
+#ifndef WEBAPP_H
+#define WEBAPP_H
 
 #include <stdlib.h>
 #include <stdbool.h>
 #include <math.h>
 
 typedef struct {
-    long cachePackageTagsTrack;
-    const char* dataStoreDriver;
-    const char* dataLogMaxSize;
-    long cacheTemplatesRefresh;
+    const char* configGlossary_installationAt;
     const char* configGlossary_adminEmail;
-    long dataStoreMaxConns;
-    long cachePagesDirtyRead;
-    bool betaServer;
-    const char* dataLogLocation;
+    const char* configGlossary_poweredBy;
+    const char* configGlossary_poweredByIcon;
+    const char* configGlossary_staticPath;
     const char* templateProcessorClass;
+    const char* templateLoaderClass;
+    const char* templatePath;
+    const char* templateOverridePath;
+    const char* defaultListTemplate;
+    const char* defaultFileTemplate;
+    bool useJSP;
+    const char* jspListTemplate;
+    const char* jspFileTemplate;
+    long cachePackageTagsTrack;
+    long cachePackageTagsStore;
+    long cachePackageTagsRefresh;
+    long cacheTemplatesTrack;
+    long cacheTemplatesStore;
+    long cacheTemplatesRefresh;
+    long cachePagesTrack;
     long cachePagesStore;
+    long cachePagesRefresh;
+    long cachePagesDirtyRead;
+    const char* searchEngineListTemplate;
+    const char* searchEngineFileTemplate;
+    const char* searchEngineRobotsDb;
+    bool useDataStore;
+    const char* dataStoreClass;
+    const char* redirectionClass;
+    const char* dataStoreName;
+    const char* dataStoreDriver;
+    const char* dataStoreUrl;
+    const char* dataStoreUser;
+    const char* dataStorePassword;
+    const char* dataStoreTestQuery;
+    const char* dataStoreLogFile;
+    long dataStoreInitConns;
+    long dataStoreMaxConns;
+    long dataStoreConnUsageLimit;
+    const char* dataStoreLogLevel;
+    long maxUrlLength;
     const char* mailHost;
     const char* mailHostOverride;
-    const char* jspListTemplate;
-    const char* dataStoreTestQuery;
-    const char* fileTransferFolder;
-    long cacheTemplatesTrack;
-    const char* defaultFileTemplate;
-    const char* configGlossary_poweredByIcon;
-    const char* dataStoreUrl;
-    long adminGroupID;
-    const char* redirectionClass;
-    const char* configGlossary_installationAt;
-    const char* templatePath;
-    long cachePackageTagsStore;
-    const char* searchEngineListTemplate;
-    const char* removePageCache;
-    const char* searchEngineRobotsDb;
-    long cacheTemplatesStore;
-    const char* removeTemplateCache;
-    const char* defaultListTemplate;
-    const char* dataStoreLogFile;
-    const char* dataStoreLogLevel;
-    bool useJSP;
-    const char* dataStoreName;
-    long cachePackageTagsRefresh;
-    long dataStoreConnUsageLimit;
-    const char* configGlossary_staticPath;
-    const char* configGlossary_poweredBy;
-    long cachePagesRefresh;
-    const char* templateLoaderClass;
-    long lookInContext;
-    long maxUrlLength;
-    long cachePagesTrack;
-    bool useDataStore;
-    const char* logLocation;
-    const char* jspFileTemplate;
-    const char* dataStoreUser;
-    const char* dataStoreClass;
-    const char* searchEngineFileTemplate;
-    long dataLog;
     long log;
-    double dataStoreInitConns;
-    const char* dataStorePassword;
+    const char* logLocation;
     const char* logMaxSize;
-    const char* templateOverridePath;
-} webapp_web_app_servlet_entry_init_param;
+    long dataLog;
+    const char* dataLogLocation;
+    const char* dataLogMaxSize;
+    const char* removePageCache;
+    const char* removeTemplateCache;
+    const char* fileTransferFolder;
+    long lookInContext;
+    long adminGroupID;
+    bool betaServer;
+} webappWebappServletEntryInit_param;
 
 typedef struct {
     const char* servlet_name;
-    webapp_web_app_servlet_entry_init_param* init_param;
     const char* servlet_class;
-} webapp_web_app_servlet_entry;
+    webappWebappServletEntryInit_param* init_param;
+} webappWebappServletEntry;
 
-enum { WEBAPP_WEB_APP_SERVLET_COUNT = 5 };
+enum { WEBAPPWEBAPPSERVLETCOUNT = 5 };
 
-typedef webapp_web_app_servlet_entry webapp_web_app_servlet[WEBAPP_WEB_APP_SERVLET_COUNT];
+typedef webappWebappServletEntry webappWebappServlet[WEBAPPWEBAPPSERVLETCOUNT];
 
 typedef struct {
     const char* cofaxCDS;
@@ -80,23 +80,23 @@ typedef struct {
     const char* cofaxAdmin;
     const char* fileServlet;
     const char* cofaxTools;
-} webapp_web_app_servlet_mapping;
+} webappWebappServlet_mapping;
 
 typedef struct {
     const char* taglib_uri;
     const char* taglib_location;
-} webapp_web_app_taglib;
+} webappWebappTaglib;
 
 typedef struct {
-    webapp_web_app_servlet servlet;
-    webapp_web_app_servlet_mapping servlet_mapping;
-    webapp_web_app_taglib taglib;
-} webapp_web_app;
+    webappWebappServlet servlet;
+    webappWebappServlet_mapping servlet_mapping;
+    webappWebappTaglib taglib;
+} webappWebapp;
 
 typedef struct {
-    webapp_web_app web_app;
+    webappWebapp webapp;
 } webapp;
 
-extern webapp webapp_object;
+extern webapp webappObject;
 
 #endif

@@ -1,26 +1,34 @@
-#ifndef maps_h
-#define maps_h
+#ifndef MAPS_H
+#define MAPS_H
 
-typedef double json_markers_entry_point[2];
+#include <stdlib.h>
+#include <stdbool.h>
+#include <math.h>
+
+enum { MAPSMARKERSENTRYPOINTCOUNT = 2 };
+
+typedef double mapsMarkersEntryPoint[MAPSMARKERSENTRYPOINTCOUNT];
 
 typedef struct {
-    const char* markerImage;
-    const char* fixture;
-    const char* tv;
-    json_markers_entry_point point;
-    const char* previousScore;
+    mapsMarkersEntryPoint point;
     const char* homeTeam;
-    const char* information;
-    const char* capacity;
     const char* awayTeam;
-} json_markers_entry;
+    const char* markerImage;
+    const char* information;
+    const char* fixture;
+    const char* capacity;
+    const char* previousScore;
+    const char* tv;
+} mapsMarkersEntry;
 
-typedef json_markers_entry json_markers[3];
+enum { MAPSMARKERSCOUNT = 3 };
+
+typedef mapsMarkersEntry mapsMarkers[MAPSMARKERSCOUNT];
 
 typedef struct {
-    json_markers markers;
-} json;
+    mapsMarkers markers;
+} maps;
 
-extern json maps;
+extern maps mapsObject;
 
 #endif

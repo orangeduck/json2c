@@ -1,8 +1,6 @@
 #include "interop.h"
 
-#include <stdlib.h>
-
-json interop = {
+interop interopObject = {
     .ResultSet = {
         .totalResultsAvailable = "1827221", 
         .totalResultsReturned = 2, 

@@ -182,7 +182,7 @@ def cjson_unify_list(objs, typs, **kw):
             
             if len(set([t.fields for t in typs])) > 1:
                 
-                fields = tuple(set(sum([list(t.fields) for t in typs], [])))
+                fields = tuple(collections.OrderedDict.fromkeys(sum([list(t.fields) for t in typs], [])))
                 types  = tuple()
                 
                 for f in fields:
@@ -474,7 +474,7 @@ def json2c_file(filename, **kw):
     
         headerguard = os.path.splitext(os.path.split(headerfile)[1])[0] + '_h'
         
-        if not kw.get('no-guard_uppercase', False): headerguard = headerguard.upper()
+        if not kw.get('no_guard_uppercase', False): headerguard = headerguard.upper()
 
         header = (
             '#ifndef ' + headerguard + '\n'

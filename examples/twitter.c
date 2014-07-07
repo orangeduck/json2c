@@ -1,8 +1,6 @@
 #include "twitter.h"
 
-#include <stdlib.h>
-
-json twitter = {
+twitter twitter_object = {
     .results = {
         {
             .text = "@twitterapi  http://tinyurl.com/ctrefg", 

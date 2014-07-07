@@ -1,4 +1,4 @@
-#include "examples/customer.h"
+#include "customer.h"
 
 customer customerObject = {
     .firstName = "John", 

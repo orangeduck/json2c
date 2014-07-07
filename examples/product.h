@@ -1,48 +1,49 @@
-#ifndef product_h
-#define product_h
+#ifndef PRODUCT_H
+#define PRODUCT_H
 
 #include <stdlib.h>
 #include <stdbool.h>
+#include <math.h>
 
 typedef struct {
     const char* type;
     const char* description;
     bool required;
-} customer_properties_id;
+} product_properties_id;
 
 typedef struct {
     const char* description;
     const char* type;
     bool required;
-} customer_properties_name;
+} product_properties_name;
 
 typedef struct {
     const char* type;
     long minimum;
     bool required;
-} customer_properties_price;
+} product_properties_price;
 
 typedef struct {
     const char* type;
-} customer_properties_tags_items;
+} product_properties_tags_items;
 
 typedef struct {
     const char* type;
-    customer_properties_tags_items items;
-} customer_properties_tags;
+    product_properties_tags_items items;
+} product_properties_tags;
 
 typedef struct {
-    customer_properties_id id;
-    customer_properties_name name;
-    customer_properties_price price;
-    customer_properties_tags tags;
-} customer_properties;
+    product_properties_id id;
+    product_properties_name name;
+    product_properties_price price;
+    product_properties_tags tags;
+} product_properties;
 
 typedef struct {
     const char* name;
-    customer_properties properties;
-} customer;
+    product_properties properties;
+} product;
 
-extern customer object;
+extern product product_object;
 
 #endif

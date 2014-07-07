@@ -1,12 +1,18 @@
-#ifndef glossary_h
-#define glossary_h
+#ifndef GLOSSARY_H
+#define GLOSSARY_H
 
-typedef const char* json_glossary_GlossDiv_GlossList_GlossEntry_GlossDef_GlossSeeAlso[2];
+#include <stdlib.h>
+#include <stdbool.h>
+#include <math.h>
+
+enum { GLOSSARYGLOSSARYGLOSSDIVGLOSSLISTGLOSSENTRYGLOSSDEFGLOSSSEEALSOCOUNT = 2 };
+
+typedef const char* glossaryGlossaryGlossDivGlossListGlossEntryGlossDefGlossSeeAlso[GLOSSARYGLOSSARYGLOSSDIVGLOSSLISTGLOSSENTRYGLOSSDEFGLOSSSEEALSOCOUNT];
 
 typedef struct {
     const char* para;
-    json_glossary_GlossDiv_GlossList_GlossEntry_GlossDef_GlossSeeAlso GlossSeeAlso;
-} json_glossary_GlossDiv_GlossList_GlossEntry_GlossDef;
+    glossaryGlossaryGlossDivGlossListGlossEntryGlossDefGlossSeeAlso GlossSeeAlso;
+} glossaryGlossaryGlossDivGlossListGlossEntryGlossDef;
 
 typedef struct {
     const char* ID;
@@ -14,28 +20,28 @@ typedef struct {
     const char* GlossTerm;
     const char* Acronym;
     const char* Abbrev;
-    json_glossary_GlossDiv_GlossList_GlossEntry_GlossDef GlossDef;
+    glossaryGlossaryGlossDivGlossListGlossEntryGlossDef GlossDef;
     const char* GlossSee;
-} json_glossary_GlossDiv_GlossList_GlossEntry;
+} glossaryGlossaryGlossDivGlossListGlossEntry;
 
 typedef struct {
-    json_glossary_GlossDiv_GlossList_GlossEntry GlossEntry;
-} json_glossary_GlossDiv_GlossList;
-
-typedef struct {
-    const char* title;
-    json_glossary_GlossDiv_GlossList GlossList;
-} json_glossary_GlossDiv;
+    glossaryGlossaryGlossDivGlossListGlossEntry GlossEntry;
+} glossaryGlossaryGlossDivGlossList;
 
 typedef struct {
     const char* title;
-    json_glossary_GlossDiv GlossDiv;
-} json_glossary;
+    glossaryGlossaryGlossDivGlossList GlossList;
+} glossaryGlossaryGlossDiv;
 
 typedef struct {
-    json_glossary glossary;
-} json;
+    const char* title;
+    glossaryGlossaryGlossDiv GlossDiv;
+} glossaryGlossary;
 
-extern json glossary;
+typedef struct {
+    glossaryGlossary glossary;
+} glossary;
+
+extern glossary glossaryObject;
 
 #endif

@@ -1,10 +1,14 @@
-#ifndef poems_h
-#define poems_h
+#ifndef POEMS_H
+#define POEMS_H
+
+#include <stdlib.h>
+#include <stdbool.h>
+#include <math.h>
 
 typedef struct {
     long length;
     const char** values;
-} json_entry_about;
+} poems_entry_about;
 
 typedef struct {
     const char* id_author;
@@ -15,11 +19,13 @@ typedef struct {
     const char* author;
     const char* title;
     long votes;
-    json_entry_about about;
-} json_entry;
+    poems_entry_about about;
+} poems_entry;
 
-typedef json_entry json[2];
+enum { POEMS_COUNT = 2 };
 
-extern json poems;
+typedef poems_entry poems[POEMS_COUNT];
+
+extern poems poems_object;
 
 #endif

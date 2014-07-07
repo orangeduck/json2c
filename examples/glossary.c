@@ -1,8 +1,6 @@
 #include "glossary.h"
 
-#include <stdlib.h>
-
-json glossary = {
+glossary glossaryObject = {
     .glossary = {
         .title = "example glossary", 
         .GlossDiv = {

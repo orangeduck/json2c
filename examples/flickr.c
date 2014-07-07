@@ -1,8 +1,6 @@
 #include "flickr.h"
 
-#include <stdlib.h>
-
-json flickr = {
+flickr flickr_object = {
     .title = "Talk On Travel Pool", 
     .link = "http://www.flickr.com/groups/talkontravel/pool/", 
     .description = "Travel and vacation photos from around the world.", 

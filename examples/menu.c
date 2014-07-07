@@ -1,8 +1,6 @@
 #include "menu.h"
 
-#include <stdlib.h>
-
-json menu = {
+menu menu_object = {
     .menu = {
         .id = "file", 
         .value = "File", 

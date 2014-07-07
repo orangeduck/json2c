@@ -1,23 +1,29 @@
-#ifndef flickr_h
-#define flickr_h
+#ifndef FLICKR_H
+#define FLICKR_H
+
+#include <stdlib.h>
+#include <stdbool.h>
+#include <math.h>
 
 typedef struct {
     const char* m;
-} json_items_entry_media;
+} flickr_items_entry_media;
 
 typedef struct {
     const char* title;
     const char* link;
-    json_items_entry_media media;
+    flickr_items_entry_media media;
     const char* date_taken;
     const char* description;
     const char* published;
     const char* author;
     const char* author_id;
     const char* tags;
-} json_items_entry;
+} flickr_items_entry;
 
-typedef json_items_entry json_items[1];
+enum { FLICKR_ITEMS_COUNT = 1 };
+
+typedef flickr_items_entry flickr_items[FLICKR_ITEMS_COUNT];
 
 typedef struct {
     const char* title;
@@ -25,9 +31,9 @@ typedef struct {
     const char* description;
     const char* modified;
     const char* generator;
-    json_items items;
-} json;
+    flickr_items items;
+} flickr;
 
-extern json flickr;
+extern flickr flickr_object;
 
 #endif
