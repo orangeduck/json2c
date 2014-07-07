@@ -87,8 +87,21 @@ customer customerObject = {
 };
 ```
 
-Why?
-----
+Usage
+-----
+
+Simply run `json2c` on some JSON file to create a matching header and source file in the same directory.
+
+```
+pip install json2c
+json2c -c customer.json
+```
+
+The `-c` flag is used for CamelCase friendly configuration. Run with `--help` to see the full list of options. This includes lots of fine grained options for changing the style and conventions of the generated C code to match your project.
+
+
+Motivation
+----------
 
 Generating data literals in C is useful for embedding configuration, mark up, or even whole databases into C programs.
 
@@ -98,22 +111,11 @@ Conversion from JSON is a natural choice because of how easy it is to write by h
 
 An example application for this tool might be in the construction of an RPG. Given a large amount of data to enter, such as weapon and item details, the data entry could be generated (or written by hand), and then this tool could be used to embed it directly at compile time.
 
+The downside is of course that embedding too much data can overly increase the size of the executable, which could result in your program being sluggish to start.
 
-Usage
+
+About
 -----
-
-Simply run the script on some JSON file to create a header and source file as output in the same directory.
-
-```
-pip install json2c
-json2c -c customer.json
-```
-
-Run with `--help` to see the full list of options. This includes lots of options for changing the style and conventions of the generated C code.
-
-
-How it Works
-------------
 
 The basic process of `json2c` is simple.
 
@@ -130,8 +132,8 @@ While some of the heuristics don't always make sense, this approach has overall 
 Various options about how types and names and generated can be set on the command line. This allows you to generate C code that matches your project, and looks hand-written.
 
 
-More Examples
--------------
+Examples
+--------
 
 ```
 $ json2c -c interop.json
