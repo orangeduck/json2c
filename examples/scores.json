@@ -1,0 +1,17 @@
+[
+  {
+    "index"  : 1,
+    "name"   : "mike",
+    "points" : ["blah", null, "test"]
+  },
+  {
+    "index"  : 2,
+    "name"   : "tom",
+    "points" : ["one", "two", "three", null]
+  },
+  {
+    "index"  : 3,
+    "name"   : "dan",
+    "points" : ["foo", "bar"]
+  }
+]
