@@ -489,10 +489,8 @@ def json2c_file(filename, **kw):
     with open(headerfile, 'w') as f: f.write(header)
     with open(sourcefile, 'w') as f: f.write(source)
     
-    
 """ Command line program """
-if __name__ == '__main__':
-    
+def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('filename', type=str, help='input JSON file')
     parser.add_argument('-v', '--variable', type=str, help='name of C variable to create')
@@ -552,4 +550,7 @@ if __name__ == '__main__':
     parser.add_argument('--no-coerce-matching', action='store_true', help='don\'t coerce matching object entries')
     
     json2c_file(**{ k : v for k, v in parser.parse_args().__dict__.items() if v != None})
+    
+if __name__ == '__main__':
+    main()
     
