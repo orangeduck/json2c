@@ -129,7 +129,7 @@ To do this unification a number of heuristics are used. For example `null` can b
 
 While some of the heuristics don't always make sense, this approach has overall proven very effective for almost all example JSON data I've found. This means `json2c` is almost always capable of producing something meaningful.
 
-Various options about how types and names and generated can be set on the command line. This allows you to generate C code that matches your project, and looks hand-written.
+Various options about how types and names are generated can be set on the command line. This allows you to generate C code that matches your project, and looks hand-written.
 
 
 Examples
